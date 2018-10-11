@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import GradientCard from '../components/GradientCard';
 
 class Gradients extends Component {
   static async getInitialProps({ query: { gradients } }) {
@@ -14,7 +15,7 @@ class Gradients extends Component {
       <div>
         <h1>Sick Ass Gradients</h1>
         {gradients.map((gradient) => (
-          <p>{gradient.name}</p>
+          <GradientCard {...gradient} />
         ))}
       </div>
     );
