@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { createGradient } from '../../utils/gradient';
+import Palette from '../Palette';
 
 // Styles
 import { P } from '../../styles/typography';
@@ -14,7 +15,7 @@ import {
 
 class GradientCard extends Component {
   state = {
-    isFlipped: false,
+    isFlipped: true,
     isHovered: false
   };
 
@@ -30,6 +31,7 @@ class GradientCard extends Component {
   render() {
     const gradient = createGradient(this.props.colors, this.props.default_deg);
     const style = { backgroundImage: gradient };
+
     return (
       <CardContainer
         hovering={this.state.isHovered}
@@ -44,7 +46,6 @@ class GradientCard extends Component {
             <GradientContainer style={style} />
             <InfoContainer>
               <P>{this.props.name}</P>
-              <P>Front</P>
               <button
                 style={{ background: 'red', height: '20px' }}
                 onClick={this._flipCard}
@@ -53,11 +54,11 @@ class GradientCard extends Component {
           </Front>
           <Back>
             <P>{this.props.name}</P>
-            <P>Back</P>
             <button
               style={{ background: 'red', height: '20px' }}
               onClick={this._flipCard}
             />
+            <Palette colors={this.props.colors} />
           </Back>
         </CardWrapper>
       </CardContainer>
