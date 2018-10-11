@@ -17,13 +17,11 @@ MongoClient.connect(
 
     app.prepare().then(() => {
       const server = express();
-      server.get('/gradients', (req, res) => {
+      server.get('/api/gradients', (req, res) => {
         db.collection('gradients')
           .find()
           .toArray()
-          .then((gradients) =>
-            app.render(req, res, '/gradients', { gradients })
-          );
+          .then((gradients) => res.json(gradients));
       });
 
       server.get('*', (req, res) => {
