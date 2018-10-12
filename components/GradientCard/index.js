@@ -1,6 +1,9 @@
 import { Component } from 'react';
 import { Spring } from 'react-spring';
 
+import { Subscribe } from 'unstated';
+import { NotificationsContainer } from '../../containers';
+
 import { createGradient } from '../../utils/gradient';
 import { copyText } from '../../utils/copyText';
 import Palette from '../Palette';
@@ -71,18 +74,25 @@ class GradientCard extends Component {
 const Gradient = ({ gradient, hovering }) => {
   const style = { backgroundImage: gradient };
   return (
-    <GradientContainer style={style} onClick={() => copyText(gradient)}>
-      <Spring
-        speed={0.2}
-        to={{
-          opacity: hovering ? 1 : 0,
-          transform: hovering ? 'translateY(0px)' : 'translateY(0.3rem)',
-          background: hovering ? 'white' : 'rgba(0,0,0,0)'
-        }}
-      >
-        {(styles) => <CopyCSSText style={styles}>Copy CSS</CopyCSSText>}
-      </Spring>
-    </GradientContainer>
+    <Subscribe to={[NotificationsContainer]}>
+      {(notifications) => (
+        <GradientContainer
+          style={style}
+          onClick={() => notifications.addNotification()}
+        >
+          <Spring
+            speed={0.2}
+            to={{
+              opacity: hovering ? 1 : 0,
+              transform: hovering ? 'translateY(0px)' : 'translateY(0.3rem)',
+              background: hovering ? 'white' : 'rgba(0,0,0,0)'
+            }}
+          >
+            {(styles) => <CopyCSSText style={styles}>Copy CSS</CopyCSSText>}
+          </Spring>
+        </GradientContainer>
+      )}
+    </Subscribe>
   );
 };
 
