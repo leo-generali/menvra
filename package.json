@@ -17,6 +17,8 @@
     "next": "^7.0.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-spring": "^5.9.2",
+    "redux-zero": "^4.14.0",
     "styled-components": "^4.0.0-beta.11.3"
   },
   "devDependencies": {

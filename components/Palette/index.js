@@ -1,5 +1,5 @@
 import { PureComponent } from 'react';
-import copyText from '../../utils/copyText';
+import { copyText } from '../../utils/copyText';
 
 // Styled
 import { PaletteContainer, SwatchContainer, Text, Swatch } from './styles';

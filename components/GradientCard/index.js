@@ -1,5 +1,8 @@
 import { Component } from 'react';
+import { Spring } from 'react-spring';
+
 import { createGradient } from '../../utils/gradient';
+import { copyText } from '../../utils/copyText';
 import Palette from '../Palette';
 
 // Styles
@@ -10,12 +13,13 @@ import {
   InfoContainer,
   GradientContainer,
   Front,
-  Back
+  Back,
+  CopyCSSText
 } from './styles';
 
 class GradientCard extends Component {
   state = {
-    isFlipped: true,
+    isFlipped: false,
     isHovered: false
   };
 
@@ -30,7 +34,6 @@ class GradientCard extends Component {
 
   render() {
     const gradient = createGradient(this.props.colors, this.props.default_deg);
-    const style = { backgroundImage: gradient };
 
     return (
       <CardContainer
@@ -43,7 +46,7 @@ class GradientCard extends Component {
           flipped={this.state.isFlipped}
         >
           <Front>
-            <GradientContainer style={style} />
+            <Gradient gradient={gradient} hovering={this.state.isHovered} />
             <InfoContainer>
               <P>{this.props.name}</P>
               <button
@@ -53,7 +56,6 @@ class GradientCard extends Component {
             </InfoContainer>
           </Front>
           <Back>
-            <P>{this.props.name}</P>
             <button
               style={{ background: 'red', height: '20px' }}
               onClick={this._flipCard}
@@ -65,5 +67,23 @@ class GradientCard extends Component {
     );
   }
 }
+
+const Gradient = ({ gradient, hovering }) => {
+  const style = { backgroundImage: gradient };
+  return (
+    <GradientContainer style={style} onClick={() => copyText(gradient)}>
+      <Spring
+        speed={0.2}
+        to={{
+          opacity: hovering ? 1 : 0,
+          transform: hovering ? 'translateY(0px)' : 'translateY(0.3rem)',
+          background: hovering ? 'white' : 'rgba(0,0,0,0)'
+        }}
+      >
+        {(styles) => <CopyCSSText style={styles}>Copy CSS</CopyCSSText>}
+      </Spring>
+    </GradientContainer>
+  );
+};
 
 export default GradientCard;

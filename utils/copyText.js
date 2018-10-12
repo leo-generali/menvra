@@ -10,4 +10,4 @@ const copyText = (text) => {
   document.body.removeChild(el);
 };
 
-export default copyText;
+export { copyText };

@@ -1,5 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { shadow } from '../../styles/global';
+import { fontColors } from '../../styles/colors';
+import { monoStack } from '../../styles/typography';
 
 const CardContainer = styled.div`
   display: inline-block;
@@ -19,6 +21,7 @@ const CardWrapper = styled.div`
 const GradientContainer = styled.div`
   width: 100%;
   height: 100%;
+  cursor: pointer;
 `;
 
 const InfoContainer = styled.div`
@@ -49,11 +52,23 @@ const Back = styled.div`
   transform: rotateY(180deg);
 `;
 
+const CopyCSSText = styled.span`
+  font-size: 1.2rem;
+  color: ${fontColors.default};
+  position: absolute;
+  padding: 0.5rem;
+  ${monoStack};
+  border-bottom-right-radius: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+`;
+
 export {
   CardContainer,
   CardWrapper,
   InfoContainer,
   GradientContainer,
   Front,
-  Back
+  Back,
+  CopyCSSText
 };
