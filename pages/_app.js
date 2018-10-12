@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import App, { Container } from 'next/app';
 import Navbar from '../components/Navbar';
-import NotificationsTray from '../components/NotificationsTray';
 
 import GlobalReset from '../styles/globalReset';
 import { Provider } from 'unstated';
@@ -12,7 +11,6 @@ class Layout extends Component {
     return (
       <Fragment>
         <Navbar />
-        <NotificationsTray />
         {children}
       </Fragment>
     );

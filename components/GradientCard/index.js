@@ -1,11 +1,9 @@
 import { Component } from 'react';
-import { Spring } from 'react-spring';
-
-import { Subscribe } from 'unstated';
-import { NotificationsContainer } from '../../containers';
 
 import { createGradient } from '../../utils/gradient';
 import { copyText } from '../../utils/copyText';
+
+import Gradient from '../Gradient';
 import Palette from '../Palette';
 
 // Styles
@@ -14,10 +12,8 @@ import {
   CardWrapper,
   CardContainer,
   InfoContainer,
-  GradientContainer,
   Front,
-  Back,
-  CopyCSSText
+  Back
 } from './styles';
 
 class GradientCard extends Component {
@@ -27,7 +23,6 @@ class GradientCard extends Component {
   };
 
   _flipCard = () => {
-    console.log('flipping card');
     const isFlipped = !this.state.isFlipped;
     this.setState({ isFlipped });
   };
@@ -40,16 +35,16 @@ class GradientCard extends Component {
 
     return (
       <CardContainer
-        hovering={this.state.isHovered}
+        isHovered={this.state.isHovered}
         onMouseEnter={this._turnHoverOn}
         onMouseLeave={this._turnHoverOff}
       >
         <CardWrapper
-          hovering={this.state.isHovered}
+          isHovered={this.state.isHovered}
           flipped={this.state.isFlipped}
         >
           <Front>
-            <Gradient gradient={gradient} hovering={this.state.isHovered} />
+            <Gradient gradient={gradient} name={this.props.name} />
             <InfoContainer>
               <P>{this.props.name}</P>
               <button
@@ -70,30 +65,5 @@ class GradientCard extends Component {
     );
   }
 }
-
-const Gradient = ({ gradient, hovering }) => {
-  const style = { backgroundImage: gradient };
-  return (
-    <Subscribe to={[NotificationsContainer]}>
-      {(notifications) => (
-        <GradientContainer
-          style={style}
-          onClick={() => notifications.addNotification()}
-        >
-          <Spring
-            speed={0.2}
-            to={{
-              opacity: hovering ? 1 : 0,
-              transform: hovering ? 'translateY(0px)' : 'translateY(0.3rem)',
-              background: hovering ? 'white' : 'rgba(0,0,0,0)'
-            }}
-          >
-            {(styles) => <CopyCSSText style={styles}>Copy CSS</CopyCSSText>}
-          </Spring>
-        </GradientContainer>
-      )}
-    </Subscribe>
-  );
-};
 
 export default GradientCard;

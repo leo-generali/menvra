@@ -6,6 +6,7 @@ const Container = styled.div`
   box-shadow: 4px 4px 50px 0px rgba(51, 71, 79, 0.25);
   color: #fff;
   padding: 1rem;
+  margin-bottom: 1rem;
 `;
 
 export { Container };

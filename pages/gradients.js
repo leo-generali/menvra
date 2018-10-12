@@ -1,6 +1,8 @@
 import { Component } from 'react';
-import GradientCard from '../components/GradientCard';
 import axios from 'axios';
+
+import NotificationsTray from '../components/NotificationsTray';
+import GradientCard from '../components/GradientCard';
 
 // Styles
 import { H1 } from '../styles/typography';
@@ -21,6 +23,7 @@ class Gradients extends Component {
 
     return (
       <div>
+        <NotificationsTray />
         <H1>Sick Ass Gradients</H1>
         {!!gradients &&
           gradients.map((gradient) => <GradientCard {...gradient} />)}
