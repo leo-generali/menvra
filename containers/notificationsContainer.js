@@ -1,5 +1,4 @@
 import { Container } from 'unstated';
-import update from 'immutability-helper';
 
 class NotificationsContainer extends Container {
   state = {
@@ -13,9 +12,9 @@ class NotificationsContainer extends Container {
       id,
       removeNotification: () => this.removeNotification(id)
     };
-    this.setState((prevState) => ({
-      notifications: [...prevState.notifications, notification]
-    }));
+
+    const notifications = [...this.state.notifications, notification];
+    this.setState({ notifications });
   };
 
   removeNotification = (id) => {
@@ -23,9 +22,7 @@ class NotificationsContainer extends Container {
       (notification) => id !== notification.id
     );
 
-    this.setState({
-      notifications
-    });
+    this.setState({ notifications });
   };
 }
 

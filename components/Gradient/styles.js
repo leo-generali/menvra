@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { fontColors } from '../../styles/colors';
-import { monoStack } from '../../styles/typography';
+import { monoStack, P } from '../../styles/typography';
 
 const GradientContainer = styled.div`
   width: 100%;

@@ -1,7 +1,6 @@
 import { Component } from 'react';
 
-import { createGradient } from '../../utils/gradient';
-import { copyText } from '../../utils/copyText';
+import { createGradient } from '../../utils';
 
 import Gradient from '../Gradient';
 import Palette from '../Palette';

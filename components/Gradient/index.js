@@ -1,9 +1,11 @@
 import { PureComponent } from 'react';
 import { Subscribe } from 'unstated';
 import { NotificationsContainer } from '../../containers';
+import { P } from '../../styles/typography';
 
-// Libraries
+// Libraries/Utils
 import { Spring } from 'react-spring';
+import { copyText, randomEmoji } from '../../utils';
 
 // Styles
 import { GradientContainer, CopyCSSText } from './styles';
@@ -26,9 +28,14 @@ class Gradient extends PureComponent {
         {(notifications) => (
           <GradientContainer
             style={style}
-            onClick={() =>
-              notifications.addNotification(`Succesfully copied ${name}`)
-            }
+            onClick={() => {
+              copyText(gradient);
+              notifications.addNotification(
+                <P white>
+                  Succesfully copied {name} {randomEmoji()}
+                </P>
+              );
+            }}
             onMouseEnter={this._turnHoverOn}
             onMouseLeave={this._turnHoverOff}
           >

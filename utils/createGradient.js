@@ -9,4 +9,4 @@ const createGradient = (colorArry, deg) => {
   return combined;
 };
 
-export { createGradient };
+export default createGradient;
