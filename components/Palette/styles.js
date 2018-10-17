@@ -23,7 +23,6 @@ const SwatchContainer = styled.div`
 
 const Text = styled.span`
   font-size: 1.8rem;
-  /* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); */
   ${monoStack};
 `;
 

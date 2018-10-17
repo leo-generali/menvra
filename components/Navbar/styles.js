@@ -1,43 +1,45 @@
 import styled from 'styled-components';
-import { monoStack } from '../../styles/typography';
-import { brandColors } from '../../styles/colors';
 
-const NavAnchor = styled.a`
-  cursor: pointer;
-  color: ${brandColors.primary};
-  font-size: 1.8rem;
-  ${monoStack};
-  position: relative;
-  z-index: 10;
+const StyledNav = styled.nav`
+  height: 6rem;
+`;
 
-  :hover {
-    color: ${brandColors.primaryDark};
-    z-index: 10;
+const StyledList = styled.ul`
+  max-width: ${(props) => props.theme.maxWidth};
+  height: 100%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
 
-    :before {
-      color: white;
-      position: absolute;
-      content: '';
-      height: 0.2rem;
-      width: 100%;
-      background-color: ${brandColors.primaryDark};
-      bottom: 0;
-      left: 0;
-      z-index: 1;
-    }
-  }
-
-  :before {
-    z-index: 1;
-    transition: 0.2s;
-    position: absolute;
-    background-color: ${brandColors.primary};
-    content: '';
-    height: 0.2rem;
-    width: 100%;
-    bottom: 0;
-    left: 0;
+  li {
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
 `;
 
-export { NavAnchor };
+/* prettier-ignore */
+const NavAnchor = styled.a`
+  cursor: pointer;
+  font-size: 1.8rem;
+  z-index: 10;
+  transition: ${props => props.theme.transition.quick};
+  color: ${props => props.gradient ? '#ffffff' : props.theme.primary };
+  ${(props) => props.gradient && `
+    padding: 1rem 4rem;
+    background: ${props.theme.primary};
+    border-radius: 0.3rem;
+
+    :hover {
+      transform: translateY(-0.2rem);
+      box-shadow: ${props.theme.shadow.mid};
+    }
+
+    :active {
+      transform: translateY(0rem);
+      box-shadow: none;
+    }
+  `};
+`;
+
+export { NavAnchor, StyledList, StyledNav };

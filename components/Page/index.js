@@ -1,7 +1,8 @@
-import { Component, Fragment } from 'react';
+import { Component } from 'react';
 import Router from 'next/router';
 import { Provider } from 'unstated';
 import NProgress from 'nprogress';
+import { ThemeProvider } from 'styled-components';
 
 // Components
 import Meta from './Meta';
@@ -9,6 +10,8 @@ import Navbar from '../Navbar';
 
 // Styles
 import GlobalReset from '../../styles/globalReset';
+import { theme } from '../../styles/theme';
+import { PageContainer } from './styles';
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -25,12 +28,14 @@ Router.onRouteChangeError = () => {
 class Page extends Component {
   render() {
     return (
-      <Provider>
-        <GlobalReset />
-        <Navbar />
-        <Meta />
-        <Fragment>{this.props.children}</Fragment>
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <Provider>
+          <GlobalReset />
+          <Navbar />
+          <Meta />
+          <PageContainer>{this.props.children}</PageContainer>
+        </Provider>
+      </ThemeProvider>
     );
   }
 }

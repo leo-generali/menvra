@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { fontColors } from '../../styles/colors';
-import { monoStack, P } from '../../styles/typography';
+import { monoStack } from '../../styles/typography';
 
 const GradientContainer = styled.div`
   width: 100%;
@@ -10,7 +9,7 @@ const GradientContainer = styled.div`
 
 const CopyCSSText = styled.span`
   font-size: 1.2rem;
-  color: ${fontColors.default};
+  color: ${(props) => props.theme.primaryText};
   position: absolute;
   padding: 0.5rem;
   ${monoStack};

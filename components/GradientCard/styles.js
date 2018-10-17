@@ -1,7 +1,4 @@
 import styled, { css, keyframes } from 'styled-components';
-import { shadow } from '../../styles/global';
-import { fontColors } from '../../styles/colors';
-import { monoStack } from '../../styles/typography';
 
 const CardContainer = styled.div`
   display: inline-block;
@@ -15,7 +12,8 @@ const CardWrapper = styled.div`
   transition: all 0.2s linear;
   transform-style: preserve-3d;
   transform: ${(props) => (props.flipped ? 'rotateY(180deg)' : '')};
-  box-shadow: ${(props) => (props.isHovered ? shadow.high : shadow.mid)};
+  box-shadow: ${(props) =>
+    props.isHovered ? props.theme.shadow.high : props.theme.shadow.low};
 `;
 
 const InfoContainer = styled.div`

@@ -1,6 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalReset = createGlobalStyle`
+  @font-face {
+    font-family: 'CircularStd-Book';
+    src: url('/static/CircularStd-Book.woff')
+    format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -22,7 +30,7 @@ const GlobalReset = createGlobalStyle`
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
-  article, aside, details, figcaption, figure, 
+  article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
@@ -44,9 +52,13 @@ const GlobalReset = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
+
   html {
     font-size: 62.5%
+    font-family: CircularStd-Book, -apple-system, BlinkMacSystemFont, 'Helvetica',
+    'Segoe', sans-serif;
   }
+
   * {
     box-sizing: border-box;
   }

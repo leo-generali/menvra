@@ -2,13 +2,13 @@ import { Component } from 'react';
 import Link from 'next/link';
 
 // Styles
-import { NavAnchor } from './styles';
+import { StyledNav, StyledList, NavAnchor } from './styles';
 
 class Navbar extends Component {
   render() {
     return (
-      <nav>
-        <ul>
+      <StyledNav>
+        <StyledList>
           <li>
             <Link prefetch href="/">
               <NavAnchor>Home</NavAnchor>
@@ -16,11 +16,11 @@ class Navbar extends Component {
           </li>
           <li>
             <Link prefetch href="/gradients">
-              <NavAnchor>Gradients</NavAnchor>
+              <NavAnchor gradient>Gradients</NavAnchor>
             </Link>
           </li>
-        </ul>
-      </nav>
+        </StyledList>
+      </StyledNav>
     );
   }
 }
