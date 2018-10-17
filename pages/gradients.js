@@ -35,16 +35,15 @@ class Gradients extends Component {
             <div style={{ display: 'flex' }}>
               <FilterContainer />
               <div>
-                {!!gradients &&
-                  gradients.map((gradient) => (
-                    <GradientCard
-                      {...gradient}
-                      filtered={filterGradients(
-                        page.state.currentlyFiltering,
-                        gradient.tags
-                      )}
-                    />
-                  ))}
+                {gradients.map((gradient) => (
+                  <GradientCard
+                    {...gradient}
+                    filtered={filterGradients(
+                      page.state.currentlyFiltering,
+                      gradient.tags
+                    )}
+                  />
+                ))}
               </div>
             </div>
           </div>

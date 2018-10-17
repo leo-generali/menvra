@@ -1,13 +1,12 @@
 import { PureComponent } from 'react';
 import { Subscribe } from 'unstated';
-import { NotificationsContainer } from '../../containers';
-import { P } from '../../styles/typography';
-
-// Libraries/Utils
 import { Spring } from 'react-spring';
+
 import { copyText, randomEmoji } from '../../utils';
+import { NotificationsContainer } from '../../containers';
 
 // Styles
+import { P } from '../../styles/typography';
 import { GradientContainer, CopyCSSText } from './styles';
 
 class Gradient extends PureComponent {

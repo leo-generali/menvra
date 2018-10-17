@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Spring } from 'react-spring';
 
 import { createGradient } from '../../utils';
 
@@ -38,6 +39,7 @@ class GradientCard extends Component {
           isHovered={this.state.isHovered}
           onMouseEnter={this._turnHoverOn}
           onMouseLeave={this._turnHoverOff}
+          style={this.props.style}
         >
           <CardWrapper
             isHovered={this.state.isHovered}
