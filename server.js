@@ -21,24 +21,10 @@ MongoClient.connect(
     app.prepare().then(() => {
       const server = express();
       server.use(bodyParser.urlencoded({ extended: false }));
+      server.use(bodyParser.json());
 
       server.post('/api/gradients', (req, res) => {
-        const gradient = {
-          name: 'Lucious Lime',
-          tags: ['green'],
-          default_deg: 0,
-          colors: [
-            {
-              color: '009245',
-              percent: 0
-            },
-            {
-              color: 'FCEE21',
-              percent: 100
-            }
-          ]
-        };
-        console.log(gradient);
+        const gradient = req.body;
         db.collection('gradients').insertOne(gradient, (err, result) => {
           if (err) {
             res.send({ error: 'An error has occured' });
