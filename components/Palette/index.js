@@ -1,22 +1,40 @@
 import { PureComponent } from 'react';
-import { copyText } from '../../utils';
+import { Subscribe } from 'unstated';
 
-// Styled
+import { copyText, randomEmoji } from '../../utils';
+import { NotificationsContainer } from '../../containers';
+
+// Styles
 import { PaletteContainer, SwatchContainer, Text, Swatch } from './styles';
+import { P } from '../../styles/typography';
 
 class Palette extends PureComponent {
   render() {
     return (
-      <PaletteContainer>
-        {this.props.colors.map((stop) => {
-          return (
-            <SwatchContainer onClick={() => copyText(`#${stop.color}`)}>
-              <Swatch style={{ backgroundColor: `#${stop.color}` }} />
-              <Text style={{ color: `#${stop.color}` }}>#{stop.color}</Text>
-            </SwatchContainer>
-          );
-        })}
-      </PaletteContainer>
+      <Subscribe to={[NotificationsContainer]}>
+        {(notifications) => (
+          <PaletteContainer>
+            {this.props.colors.map((stop, index) => {
+              return (
+                <SwatchContainer
+                  key={index}
+                  onClick={() => {
+                    copyText(stop.color);
+                    notifications.addNotification(
+                      <P white>
+                        Succesfully copied {stop.color} {randomEmoji()}
+                      </P>
+                    );
+                  }}
+                >
+                  <Swatch style={{ backgroundColor: `#${stop.color}` }} />
+                  <Text style={{ color: `#${stop.color}` }}>#{stop.color}</Text>
+                </SwatchContainer>
+              );
+            })}
+          </PaletteContainer>
+        )}
+      </Subscribe>
     );
   }
 }
