@@ -54,9 +54,8 @@ const GlobalReset = createGlobalStyle`
   }
 
   html {
-    font-size: 62.5%
-    font-family: CircularStd-Book, -apple-system, BlinkMacSystemFont, 'Helvetica',
-    'Segoe', sans-serif;
+    font-size: 62.5%;
+    font-family: 'CircularStd-Book', -apple-system, BlinkMacSystemFont, 'Helvetica', 'Segoe', sans-serif;
   }
 
   * {

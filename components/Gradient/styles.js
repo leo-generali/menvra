@@ -9,13 +9,14 @@ const GradientContainer = styled.div`
 
 const CopyCSSText = styled.span`
   font-size: 1.2rem;
-  color: ${(props) => props.theme.primaryText};
+  color: #ffffff;
   position: absolute;
   padding: 0.5rem;
-  ${monoStack};
-  border-bottom-right-radius: 0.5rem;
+  top: 0.5rem;
+  left: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
 `;
 
 export { GradientContainer, CopyCSSText };

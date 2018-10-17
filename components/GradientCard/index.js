@@ -33,34 +33,36 @@ class GradientCard extends Component {
     const gradient = createGradient(this.props.colors, this.props.default_deg);
 
     return (
-      <CardContainer
-        isHovered={this.state.isHovered}
-        onMouseEnter={this._turnHoverOn}
-        onMouseLeave={this._turnHoverOff}
-      >
-        <CardWrapper
+      this.props.filtered && (
+        <CardContainer
           isHovered={this.state.isHovered}
-          flipped={this.state.isFlipped}
+          onMouseEnter={this._turnHoverOn}
+          onMouseLeave={this._turnHoverOff}
         >
-          <Front>
-            <Gradient gradient={gradient} name={this.props.name} />
-            <InfoContainer>
-              <P>{this.props.name}</P>
+          <CardWrapper
+            isHovered={this.state.isHovered}
+            flipped={this.state.isFlipped}
+          >
+            <Front>
+              <Gradient gradient={gradient} name={this.props.name} />
+              <InfoContainer>
+                <P>{this.props.name}</P>
+                <button
+                  style={{ background: 'red', height: '20px' }}
+                  onClick={this._flipCard}
+                />
+              </InfoContainer>
+            </Front>
+            <Back>
               <button
                 style={{ background: 'red', height: '20px' }}
                 onClick={this._flipCard}
               />
-            </InfoContainer>
-          </Front>
-          <Back>
-            <button
-              style={{ background: 'red', height: '20px' }}
-              onClick={this._flipCard}
-            />
-            <Palette colors={this.props.colors} />
-          </Back>
-        </CardWrapper>
-      </CardContainer>
+              <Palette colors={this.props.colors} />
+            </Back>
+          </CardWrapper>
+        </CardContainer>
+      )
     );
   }
 }

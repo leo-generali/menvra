@@ -43,8 +43,7 @@ class Gradient extends PureComponent {
               config={{ tension: 300, friction: 40 }}
               to={{
                 opacity: isHovered ? 1 : 0,
-                transform: isHovered ? 'translateY(0px)' : 'translateY(1rem)',
-                background: isHovered ? 'white' : 'rgba(0,0,0,0)'
+                transform: isHovered ? 'translateY(0px)' : 'translateY(1rem)'
               }}
             >
               {(styles) => <CopyCSSText style={styles}>Copy CSS</CopyCSSText>}
