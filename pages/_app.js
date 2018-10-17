@@ -1,21 +1,5 @@
-import React, { Component, Fragment } from 'react';
 import App, { Container } from 'next/app';
-import Navbar from '../components/Navbar';
-
-import GlobalReset from '../styles/globalReset';
-import { Provider } from 'unstated';
-
-class Layout extends Component {
-  render() {
-    const { children } = this.props;
-    return (
-      <Fragment>
-        <Navbar />
-        {children}
-      </Fragment>
-    );
-  }
-}
+import Page from '../components/Page';
 
 class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -33,12 +17,9 @@ class MyApp extends App {
 
     return (
       <Container>
-        <GlobalReset />
-        <Provider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </Provider>
+        <Page>
+          <Component {...pageProps} />
+        </Page>
       </Container>
     );
   }

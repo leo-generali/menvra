@@ -10,8 +10,8 @@ const GlobalReset = createGlobalStyle`
   dl, dt, dd, ol, ul, li,
   fieldset, form, label, legend,
   table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed, 
-  figure, figcaption, footer, header, hgroup, 
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
     margin: 0;
@@ -49,6 +49,26 @@ const GlobalReset = createGlobalStyle`
   }
   * {
     box-sizing: border-box;
+  }
+
+  #nprogress .bar {
+    background: #001cfa;
+    position: fixed;
+    z-index: 1031;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 0.2rem;
+  }
+
+  .nprogress-custom-parent {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .nprogress-custom-parent #nprogress .bar {
+    position: absolute;
   }
 `;
 
