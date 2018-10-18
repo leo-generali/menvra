@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 import axios from 'axios';
 import { Subscribe } from 'unstated';
 import { filterGradients } from '../utils';
@@ -11,6 +11,7 @@ import FilterContainer from '../components/FilterContainer';
 
 // Styles
 import { H1 } from '../styles/typography';
+import { Main } from '../styles/pages/gradients';
 
 class Gradients extends Component {
   state = {
@@ -29,10 +30,9 @@ class Gradients extends Component {
     return (
       <Subscribe to={[GradientPageContainer]}>
         {(page) => (
-          <div>
+          <Fragment>
             <NotificationsTray />
-            <H1>Sick Ass Gradients {page.state.currentlyFiltering}</H1>
-            <div style={{ display: 'flex' }}>
+            <Main>
               <FilterContainer />
               <div>
                 {gradients.map((gradient, index) => (
@@ -46,8 +46,8 @@ class Gradients extends Component {
                   />
                 ))}
               </div>
-            </div>
-          </div>
+            </Main>
+          </Fragment>
         )}
       </Subscribe>
     );

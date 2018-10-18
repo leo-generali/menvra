@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledNav = styled.nav`
-  height: 6rem;
+  height: ${(props) => props.theme.navHeight};
 `;
 
 const StyledList = styled.ul`

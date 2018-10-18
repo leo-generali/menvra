@@ -9,6 +9,21 @@ const GlobalReset = createGlobalStyle`
     font-style: normal;
   }
 
+  button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+  }
+
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -56,6 +71,17 @@ const GlobalReset = createGlobalStyle`
   html {
     font-size: 62.5%;
     font-family: 'CircularStd-Book', -apple-system, BlinkMacSystemFont, 'Helvetica', 'Segoe', sans-serif;
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  #__next {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   * {

@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import { Spring } from 'react-spring';
 
 import { createGradient } from '../../utils';
 

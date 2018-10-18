@@ -11,7 +11,8 @@ const theme = {
   },
   transition: {
     quick: 'all 0.05s ease-in'
-  }
+  },
+  navHeight: '6rem'
 };
 
 export { theme };
