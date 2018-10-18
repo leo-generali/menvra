@@ -2,7 +2,6 @@ import { Subscribe } from 'unstated';
 import { GradientPageContainer } from '../../containers';
 
 // Components
-import { filterGradients } from '../../utils';
 import { TAGS } from './tags';
 import FilterButton from '../FilterButton';
 

@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 const StyledNav = styled.nav`
-  height: ${(props) => props.theme.navHeight};
+  min-height: ${(props) => props.theme.navHeight};
+  max-height: ${(props) => props.theme.navHeight};
+  height: 100%;
 `;
 
 const StyledList = styled.ul`
@@ -28,7 +30,6 @@ const NavAnchor = styled.a`
   ${(props) => props.gradient && `
     padding: 1rem 4rem;
     background: ${props.theme.primary};
-    border-radius: 0.3rem;
 
     :hover {
       transform: translateY(-0.2rem);
